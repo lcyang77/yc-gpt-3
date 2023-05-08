@@ -88,3 +88,108 @@ function displayMessage(role, message) {
     chat.appendChild(messageWrapper);
     chat.scrollTop = chat.scrollHeight;
 }
+
+
+
+
+
+
+
+
+const chatElement = document.getElementById("chat");
+
+chatElement.addEventListener("mouseenter", () => {
+  chatElement.style.animation = "floating 2s infinite";
+});
+
+chatElement.addEventListener("mouseleave", () => {
+  chatElement.style.animation = "";
+});
+
+
+
+
+
+
+
+async function displayMessage(role, message) {
+    const chat = document.getElementById("chat");
+
+    // 创建包装消息的元素
+    const messageWrapper = document.createElement("div");
+    messageWrapper.classList.add("message-wrapper");
+    messageWrapper.classList.add(`${role}-wrapper`);
+
+    const messageElement = document.createElement("div");
+    messageElement.classList.add(role);
+
+    // 将消息元素添加到包装元素中
+    messageWrapper.appendChild(messageElement);
+
+    chat.appendChild(messageWrapper);
+    chat.scrollTop = chat.scrollHeight;
+
+    // 调用逐字显示的函数
+    await typeWriter(messageElement, message, 0, 50);
+}
+
+// 新增一个逐字显示的函数
+async function typeWriter(element, text, index, speed) {
+    if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        await new Promise(resolve => setTimeout(resolve, speed));
+        return typeWriter(element, text, index, speed);
+    }
+}
+
+
+
+
+let isFloating = false;
+
+document.getElementById("chat").addEventListener("mouseenter", () => {
+  if (!isFloating) {
+    isFloating = true;
+    document.getElementById("chat").style.animation = "floating 2s 1";
+  }
+});
+
+document.getElementById("chat").addEventListener("mouseleave", () => {
+  if (!document.getElementById("chat").contains(document.activeElement)) {
+    document.getElementById("chat").style.animation = "";
+    isFloating = false;
+  }
+});
+
+document.getElementById("chat").addEventListener("animationend", () => {
+  isFloating = false;
+});
+
+
+
+
+
+
+
+
+
+document.getElementById("chat").addEventListener("mouseenter", () => {
+  if (!isFloating) {
+    isFloating = true;
+    document.getElementById("chat").classList.add("floating");
+    document.getElementById("chat").classList.remove("spread");
+  }
+});
+
+document.getElementById("chat").addEventListener("mouseleave", () => {
+  if (!document.getElementById("chat").contains(document.activeElement)) {
+    document.getElementById("chat").classList.remove("floating");
+    document.getElementById("chat").classList.add("spread");
+  }
+});
+
+document.getElementById("chat").addEventListener("animationend", () => {
+  isFloating = false;
+  document.getElementById("chat").classList.remove("spread");
+});
