@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#chat {
+    padding: 20px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.user {
+    color: blue;
+    margin-bottom: 5px;
+}
+
+.assistant {
+    color: green;
+    margin-bottom: 5px;
+}
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#chat {
+    border: 1px solid #cccccc;
+    padding: 20px;
+    min-height: 400px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    color: #1e90ff;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transform: skew(-20deg);
+}
+
+.signature {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-style: italic;
+    font-size: 17px;
+    color: rgb(0, 234, 255);
+}
+
+.user {
+    color: blue;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 255, 0.1);
+    border: 1px solid blue;
+    border-radius: 10px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.assistant {
+    color: green;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    border-radius: 10px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+/* 其他样式保持不变 */
+
+.user {
+    background-color: rgba(30, 255, 45, 0.6);
+    padding: 8px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: right;
+    margin-bottom: 10px;
+    color: rgb(7, 3, 3);
+    border: none;
+}
+
+.assistant {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 8px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #333;
+    border: none;
+}
+
+/* 添加一个类别用于包装每条消息 */
+.message-wrapper {
+    margin-bottom: 10px;
+}
+
+/* 设置用户消息的对齐方式 */
+.user-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 设置 AI 模型消息的对齐方式 */
+.assistant-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.user, .assistant {
+    animation: fadeIn 0.5s;
+}
+
+
+
+
+
+
+
+
